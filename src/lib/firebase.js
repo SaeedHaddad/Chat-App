@@ -9,11 +9,11 @@ const firebaseConfig = {
   projectId: "reactchat-b9fbb",
   storageBucket: "reactchat-b9fbb.appspot.com",
   messagingSenderId: "298906889297",
-  appId: "1:298906889297:web:8730eb148b6322511bdc70"
+  appId: "1:298906889297:web:8730eb148b6322511bdc70",
 };
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth()
-export const db = getFirestore()
-export const storage = getStorage()
+export const auth = getAuth();
+export const db = getFirestore();
+export const storage = getStorage();
