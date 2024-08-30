@@ -30,7 +30,9 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     const formData = new FormData(e.target);
+
     const { username, email, password } = Object.fromEntries(formData);
+
     // VALIDATE INPUTS
     if (!username || !email || !password)
       return toast.warn("Please enter inputs!");
@@ -43,6 +45,7 @@ const Login = () => {
     if (!querySnapshot.empty) {
       return toast.warn("Select another username");
     }
+
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
@@ -60,7 +63,7 @@ const Login = () => {
         chats: [],
       });
 
-      toast.success("Account Created! You can login now!");
+      toast.success("Account created! You can login now!");
     } catch (err) {
       console.log(err);
       toast.error(err.message);
@@ -72,6 +75,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const formData = new FormData(e.target);
     const { email, password } = Object.fromEntries(formData);
 
@@ -88,7 +92,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="item">
-        <h2>Welcome Back,</h2>
+        <h2>Welcome back,</h2>
         <form onSubmit={handleLogin}>
           <input type="text" placeholder="Email" name="email" />
           <input type="password" placeholder="Password" name="password" />
@@ -97,11 +101,11 @@ const Login = () => {
       </div>
       <div className="separator"></div>
       <div className="item">
-        <h2>Create An Account</h2>
+        <h2>Create an Account</h2>
         <form onSubmit={handleRegister}>
           <label htmlFor="file">
             <img src={avatar.url || "./avatar.png"} alt="" />
-            Upload An Image
+            Upload an image
           </label>
           <input
             type="file"
